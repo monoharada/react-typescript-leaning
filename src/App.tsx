@@ -1,4 +1,5 @@
 import React from 'react';
+import Counter from './Counter'
 
 interface AppProps {
   message?: string
@@ -10,7 +11,7 @@ const App: React.FC<AppProps> = ({ name, message, description }) => {
   return (
     <>
       <div>{message}React Starter Kit in TypeScript{name}</div>
-      <div>{description}React Starter Kit in TypeScript{name}</div>
+      <div><Counter /></div>
     </>
   );
 };
