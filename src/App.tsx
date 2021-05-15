@@ -1,12 +1,24 @@
 import React from 'react';
 
 interface AppProps {
-  message: string
+  message?: string
   name?: number
+  description?: string
 }
 
-const App = ({ message, name }: AppProps) => {
-  return <div>{message}React Starter Kit in TypeScript{name}</div>;
+const App: React.FC<AppProps> = ({ name, message, description }) => {
+  return (
+    <>
+      <div>{message}React Starter Kit in TypeScript{name}</div>
+      <div>{description}React Starter Kit in TypeScript{name}</div>
+    </>
+  );
 };
+
+App.defaultProps = {
+  message: 'hello default ',
+  name: 5,
+  description: 'this is description'
+}
 
 export default App;
