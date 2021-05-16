@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import InputFocus from './InputFocus';
 
 
 const Counter: React.FC<{}> = () => {
@@ -13,12 +14,20 @@ const Counter: React.FC<{}> = () => {
   useEffect(() => {
     ++renderTimes.current
   })
+
+  const ref = useRef<HTMLInputElement>(null!)
+  const focusInput = () => {
+    ref.current.focus()
+  }
   return (
     <div>
       <div>value:{value}</div>
       <button onClick={incliment}>+1</button>
       <button onClick={decliment}>-1</button>
       <div>this component was re-rendered {renderTimes.current} times</div>
+      <input ref={ref} type="text" />
+      <button onClick={focusInput}>Click Me!</button>
+      <InputFocus text="hoge" />
     </div>
   )
 }
